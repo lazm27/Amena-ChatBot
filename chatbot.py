@@ -12,8 +12,12 @@ import warnings
 import sys
 import pyttsx3
 from PIL import Image, ImageTk, ImageFilter
+from dotenv import load_dotenv
 
-os.environ['_BARD_API_KEY']='bwiaDWdsqdAEUyxsBIyRxKyD1odGUDCvJzHY0qkaVfk_Xxxg99X2tE5t0sqyHtJXN9X88w.'
+load_dotenv()
+
+bard_api_key = os.getenv("BARD_API_KEY")
+os.environ['_BARD_API_KEY']=bard_api_key
 
 def CustomChat(input_text):
     response=Bard().get_answer(input_text)['content']
